@@ -7,7 +7,7 @@ function ColorUpdate(color)
 end
 
 require('everblush').setup({
-    transparent_background = false,
+    transparent_background = true,
 })
 
 ColorUpdate()
