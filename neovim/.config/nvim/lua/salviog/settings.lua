@@ -30,3 +30,8 @@ vim.opt.smartcase = true
 -- Remappings
 vim.g.mapleader = " "
 
+-- Remove trailing whitespaces when saving
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
