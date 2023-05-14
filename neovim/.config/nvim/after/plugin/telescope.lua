@@ -8,6 +8,11 @@ end)
 local actions = require("telescope.actions")
 
 require("telescope").setup({
+    pickers = {
+        colorscheme = {
+            enable_preview = true
+        }
+    },
     defaults = {
         mappings = {
             i = {
