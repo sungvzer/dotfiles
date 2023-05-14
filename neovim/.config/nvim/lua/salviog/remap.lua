@@ -17,6 +17,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("x", "<leader>p", "\"_dP")
 
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "q", "<nop>")
 
 vim.keymap.set("n", "<leader>f", vim.cmd.Neoformat)
 
@@ -26,6 +27,9 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 -- Open explorer
 vim.keymap.set("n", "<leader>pv", vim.cmd.NvimTreeFocus)
 vim.keymap.set("n", "<leader>pw", vim.cmd.NvimTreeToggle)
+
+-- Exit the terminal
+vim.keymap.set("t", "<esc>", "<C-\\><C-N>")
 
 -- Quickfix
 local function quickfix()
