@@ -38,3 +38,6 @@ local function quickfix()
 end
 
 vim.keymap.set('n', '<leader>qf', quickfix, { noremap = true, silent = true })
+
+-- Create a 10-line tall terminal split
+vim.keymap.set('n', '<leader>T', '<C-w>s<C-w>j10<C-w>_:term<CR>i')
