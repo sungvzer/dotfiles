@@ -11,7 +11,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- New tab and close tab
 vim.keymap.set("n", "<leader>t", vim.cmd.tabnew)
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Keep copied buffer when pasting
 vim.keymap.set("x", "<leader>p", "\"_dP")
