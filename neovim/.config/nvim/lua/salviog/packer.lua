@@ -19,9 +19,13 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+
+    -- COLOR SCHEMES
     -- use { "catppuccin/nvim", as = "catppuccin" }
     -- use { "frenzyexists/aquarium-vim", as = "aquarium" }
     use { 'Everblush/nvim', as = 'everblush' }
+    use 'sainnhe/everforest'
+
 
     use {
         'nvim-treesitter/nvim-treesitter',

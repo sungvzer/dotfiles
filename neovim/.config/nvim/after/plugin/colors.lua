@@ -1,14 +1,11 @@
 function ColorUpdate(color)
-	color = color or "everblush"
-	vim.cmd.colorscheme(color)
-
-	--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    local new_color = color or "everforest"
+    vim.cmd.colorscheme(new_color)
+    vim.g.everforest_background = "hard"
+    vim.g.everforest_better_performance = 1
 end
 
-require('everblush').setup({
-    transparent_background = false,
-})
-
 ColorUpdate()
-
+-- require('everblush').setup({
+--    transparent_background = false.
+-- })
