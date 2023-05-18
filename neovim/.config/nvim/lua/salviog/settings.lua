@@ -35,3 +35,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+vim.opt.smartindent = true
+vim.opt.indentexpr = 'cindent'
