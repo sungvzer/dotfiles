@@ -186,6 +186,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id nitrogen --set-zoom-fill $HOME/.local/share/backgrounds/default.jpg --head=0
 exec_always --no-startup-id nitrogen --set-zoom-fill $HOME/.local/share/backgrounds/default.jpg --head=1
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id setxkbmap eu
 
 # Mouse settings
 focus_follows_mouse no
