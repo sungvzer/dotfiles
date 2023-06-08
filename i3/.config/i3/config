@@ -58,6 +58,8 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id "rofi -combi-modes 'run,drun' -show combi"
+bindsym $mod+Shift+s --release exec scrot --format png -s -q 100 -F - | xclip -selection clipboard -t image/png
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
