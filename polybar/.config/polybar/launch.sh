@@ -7,5 +7,10 @@ polybar-msg cmd quit
 # killall -q polybar
 
 # Launch bars
-echo "---" | tee -a /tmp/polybar.log
-polybar default 2>&1 | tee -a /tmp/polybar.log & disown
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload default & disown
+  done
+else
+  polybar --reload default & disown
+fi
