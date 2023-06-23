@@ -1,7 +1,8 @@
 require("nvim-tree").setup({
     sort_by = "case_sensitive",
     view = {
-        width = 30,
+        width = 50,
+        side = 'right',
     },
     renderer = {
         group_empty = true,
@@ -12,5 +13,8 @@ require("nvim-tree").setup({
     },
     git = {
         ignore = false
+    },
+    update_focused_file = {
+        enable = true
     },
 })
