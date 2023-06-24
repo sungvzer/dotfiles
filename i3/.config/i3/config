@@ -12,6 +12,7 @@
 exec_always --no-startup-id setxkbmap eu
 
 set $mod Mod4
+exec_always --no-startup-id nitrogen --restore
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -204,7 +205,5 @@ client.placeholder      #000000  #0c0c0c  #ffffff  #000000    #0c0c0c
 
 client.background       #ffffff
 
-exec_always --no-startup-id nitrogen --set-zoom-fill $HOME/.local/share/backgrounds/default.jpg --head=0
-exec_always --no-startup-id nitrogen --set-zoom-fill $HOME/.local/share/backgrounds/default.jpg --head=1
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always xrandr --output HDMI-1 --pos 1920x285
