@@ -54,6 +54,9 @@ floating_modifier $mod
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
 
+# start a terminal with nnn file manager
+bindsym $mod+n exec --no-startup-id alacritty -e "nnn"
+
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
 
