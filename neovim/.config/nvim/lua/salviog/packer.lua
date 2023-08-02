@@ -21,8 +21,8 @@ return require('packer').startup(function(use)
     }
 
     -- COLOR SCHEMES
-    -- use { "catppuccin/nvim", as = "catppuccin" }
-    -- use { "frenzyexists/aquarium-vim", as = "aquarium" }
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { "frenzyexists/aquarium-vim", as = "aquarium" }
     use { 'Everblush/nvim', as = 'everblush' }
     use 'sainnhe/everforest'
 
