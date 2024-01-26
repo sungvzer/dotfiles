@@ -9,6 +9,13 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+exec_always --no-startup-id picom -b
+
+bindsym $mod+Ctrl+c exec --no-startup-id killall picom
+bindsym $mod+c exec --no-startup-id picom -b
+
+bindsym $mod+Shift+d exec --no-startup-id discord
+
 exec_always --no-startup-id setxkbmap eu
 
 # for_window [class="^.*"] border pixel 2
