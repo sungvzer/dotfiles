@@ -163,6 +163,21 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
+set $monitor_left "HDMI-1"
+set $monitor_right "HDMI-0"
+
+#assign workspace to monitor
+workspace $ws1 output $monitor_left
+workspace $ws2 output $monitor_right
+workspace $ws3 output $monitor_left
+workspace $ws4 output $monitor_right
+workspace $ws5 output $monitor_left
+workspace $ws6 output $monitor_right
+workspace $ws7 output $monitor_left
+workspace $ws8 output $monitor_right
+workspace $ws9 output $monitor_left
+workspace $ws10 output $monitor_right
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
