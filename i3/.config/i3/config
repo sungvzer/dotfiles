@@ -10,6 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 exec_always --no-startup-id picom -b
+exec_always --no-startup-id dunst
 
 bindsym $mod+Ctrl+c exec --no-startup-id killall picom
 bindsym $mod+c exec --no-startup-id picom -b
