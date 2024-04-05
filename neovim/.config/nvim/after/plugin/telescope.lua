@@ -1,8 +1,13 @@
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>pf", ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', {})
-vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>pt", builtin.lsp_dynamic_workspace_symbols, {})
+
+local function find_files()
+	builtin.find_files({ hidden = true, no_ignore = false })
+end
+
+vim.keymap.set("n", "<leader>pf", find_files, { desc = "Find files" })
+vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Find git files" })
+vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>pt", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace symbols" })
 local actions = require("telescope.actions")
 
 require("telescope").setup({
