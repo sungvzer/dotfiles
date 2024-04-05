@@ -26,11 +26,11 @@ style = "Bold Italic"
 style = "Italic"
 
 [font.normal]
-family = "FantasqueSansM Nerd Font"
+family = "BlexMono Nerd FontPropo" #  "FantasqueSansM Nerd Font"
 style = "Normal"
 
 [font.offset]
-x = 0
+x = -1
 y = 0
 
 [window]
