@@ -138,4 +138,20 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
+
+	use({
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup({})
+		end,
+	})
+
+	-- nvim v0.7.2
+	use({
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
 end)

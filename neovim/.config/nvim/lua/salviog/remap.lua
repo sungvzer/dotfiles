@@ -41,3 +41,6 @@ vim.keymap.set("n", "<leader>qf", quickfix, { noremap = true, silent = true, des
 
 -- Create a 10-line tall terminal split
 vim.keymap.set("n", "<leader>T", "<C-w>s<C-w>j10<C-w>_:term<CR>i", { desc = "Open terminal split" })
+
+-- LazyGit
+vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })

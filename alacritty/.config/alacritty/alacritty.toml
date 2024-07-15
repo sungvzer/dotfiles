@@ -41,3 +41,9 @@ resize_increments = true
 [window.dimensions]
 columns = 120
 lines = 40
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left", mods = "Alt", chars = "\u001BB" },
+]
