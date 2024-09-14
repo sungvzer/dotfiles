@@ -10,3 +10,9 @@ alias t="tmux"
 alias ta="tmux attach"
 
 alias gwb="git welcome-back"
+
+alias tp="trash-put"
+
+function webp() {
+    cwebp -size 1024000 "$1" -o "${1%.*}.webp"
+}
