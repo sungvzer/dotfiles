@@ -1,0 +1,10 @@
+[font]
+size = 20
+
+[font.offset]
+x = -1
+y = 0
+
+[font.normal]
+family = "FantasqueSansM Nerd Font Mono"
+style = "Regular"
