@@ -15,7 +15,9 @@ exec_always --no-startup-id dunst
 bindsym $mod+Ctrl+c exec --no-startup-id killall picom
 bindsym $mod+c exec --no-startup-id picom -b
 
-bindsym $mod+Shift+d exec --no-startup-id discord
+bindsym $mod+Tab workspace next
+
+bindsym $mod+Shift+d exec --no-startup-id "i3-msg workspace 2 && i3-msg exec slack && i3-msg exec firefox https://meet.google.com/dyr-dati-xqj?authuser=1"
 
 exec_always --no-startup-id setxkbmap eu
 
@@ -31,7 +33,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FantasqueSansM Nerd Font 11
+font pango:FantasqueSansM Nerd Font 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -39,10 +41,7 @@ font pango:FantasqueSansM Nerd Font 11
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex-autostart --autostart --environment i3
-
-# The combination of xss-lock, nm-applet and pactl is a popular choice, so
-# they are included here as an example. Modify as you see fit.
+exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -52,6 +51,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l blur 
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -164,21 +164,6 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-set $monitor_left "HDMI-1"
-set $monitor_right "HDMI-0"
-
-#assign workspace to monitor
-workspace $ws1 output $monitor_left
-workspace $ws2 output $monitor_right
-workspace $ws3 output $monitor_left
-workspace $ws4 output $monitor_right
-workspace $ws5 output $monitor_left
-workspace $ws6 output $monitor_right
-workspace $ws7 output $monitor_left
-workspace $ws8 output $monitor_right
-workspace $ws9 output $monitor_left
-workspace $ws10 output $monitor_right
-
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
 bindsym $mod+Shift+2 move container to workspace number $ws2
@@ -268,3 +253,6 @@ client.background       #ffffff
 
 exec_always --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+for_window [urgent="latest"] focus
+focus_on_window_activation focus
