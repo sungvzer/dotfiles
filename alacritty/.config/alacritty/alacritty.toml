@@ -1,4 +1,3 @@
-import = ["~/.platform/alacritty.toml"]
 
 [cursor]
 blink_interval = 500
@@ -23,3 +22,6 @@ resize_increments = true
 [window.dimensions]
 columns = 120
 lines = 40
+
+[general]
+import = ["~/.platform/alacritty.toml"]
