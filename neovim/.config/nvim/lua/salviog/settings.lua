@@ -22,7 +22,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "160"
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -32,9 +32,9 @@ vim.g.mapleader = " "
 
 -- Remove trailing whitespaces when saving
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[%s/\s\+$//e]],
+	pattern = { "*" },
+	command = [[%s/\s\+$//e]],
 })
 
 vim.opt.smartindent = true
-vim.opt.indentexpr = 'cindent'
+vim.opt.indentexpr = "cindent"
