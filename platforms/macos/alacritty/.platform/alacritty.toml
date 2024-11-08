@@ -8,3 +8,9 @@ y = 0
 [font.normal]
 family = "FantasqueSansM Nerd Font Mono"
 style = "Regular"
+
+[keyboard]
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left", mods = "Alt", chars = "\u001BB" },
+]
