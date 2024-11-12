@@ -37,6 +37,7 @@ return require("packer").startup(function(use)
 	use({ "Everblush/nvim", as = "everblush" })
 	use("sainnhe/everforest")
 	use("rebelot/kanagawa.nvim")
+	use("projekt0n/github-nvim-theme")
 	use("jacoborus/tender.vim")
 
 	use({
