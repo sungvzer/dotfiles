@@ -252,7 +252,23 @@ client.placeholder      #000000  #0c0c0c  #ffffff  #000000    #0c0c0c
 client.background       #ffffff
 
 exec_always --no-startup-id nitrogen --restore
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+bar {
+    position top
+    padding 5
+    font pango:FantasqueSansM Nerd Font 12
+    i3bar_command i3bar --transparency
+    status_command i3blocks -c $HOME/.config/i3/i3-blocks.conf
+    tray_padding 7
+    colors {
+      background          #00000000
+      focused_workspace   #00000000 #d79921 #282828
+      active_workspace    #00000000 #ebdbb2 #282828
+      inactive_workspace  #00000000 #ebdbb2 #282828
+      urgent_workspace    #00000000 #ed8796 #BF616A
+      binding_mode        #00000000 #eed49f #BF616A
+    }
+}
 
 bindsym $mod+Shift+t exec --no-startup-id tidal-hifi
 
