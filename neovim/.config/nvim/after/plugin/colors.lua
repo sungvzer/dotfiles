@@ -1,5 +1,5 @@
 function ColorUpdate(color)
-	local new_color = color or "github_dark_dimmed"
+	local new_color = color or "everforest"
 	vim.cmd.colorscheme(new_color)
 end
 
