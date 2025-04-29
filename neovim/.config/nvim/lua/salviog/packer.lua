@@ -148,4 +148,27 @@ return require("packer").startup(function(use)
 	if packer_bootstrap then
 		require("packer").sync()
 	end
+
+	use("MunifTanjim/nui.nvim")
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
+		config = function()
+			require("nvim-navic").setup({ lsp = { auto_attach = true } })
+		end,
+	})
+
+	use({
+		"SmiteshP/nvim-navbuddy",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"SmiteshP/nvim-navic",
+			"MunifTanjim/nui.nvim",
+			"numToStr/Comment.nvim", -- Optional
+			"nvim-telescope/telescope.nvim", -- Optional
+		},
+		config = function()
+			require("nvim-navbuddy").setup({ lsp = { auto_attach = true } })
+		end,
+	})
 end)
