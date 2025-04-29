@@ -1,7 +1,7 @@
 require("nvim-tree").setup({
 	sort_by = "name",
 	view = {
-		width = 50,
+		width = 75,
 		side = "right",
 	},
 	renderer = {
