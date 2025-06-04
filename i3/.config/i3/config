@@ -21,10 +21,8 @@ bindsym $mod+Shift+d exec --no-startup-id "source $HOME/.config/i3/work.private 
 
 exec_always --no-startup-id setxkbmap eu
 
-for_window [class="^.*"] border pixel 0
 gaps inner 5
-
-# gaps outer 5
+gaps outer 5
 
 bindsym $mod+z      gaps outer current plus 5
 bindsym $mod+Shift+z    gaps outer current minus 5
@@ -43,7 +41,7 @@ font pango:FantasqueSansM Nerd Font 12
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xautolock -time 5 -locker "betterlockscreen -l blur dim -- --nofork"
+exec --no-startup-id xautolock -time 30 -locker "dm-tool lock" -notify 10 -notifier "notify-send 'Locking in 10 seconds'"
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -57,7 +55,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym --release button2 kill
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
