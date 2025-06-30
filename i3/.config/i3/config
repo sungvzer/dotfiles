@@ -19,6 +19,15 @@ bindsym $mod+Tab workspace next
 
 bindsym $mod+Shift+d exec --no-startup-id "source $HOME/.config/i3/work.private && i3-msg workspace 2 && i3-msg exec slack && i3-msg exec firefox $WORK_STANDUP_URL"
 
+# Mod + PageUp/Down increase/decrease brightness
+bindsym $mod+Next exec --no-startup-id ~/.config/i3/scripts/brightness.sh decrease
+bindsym $mod+Prior exec --no-startup-id ~/.config/i3/scripts/brightness.sh increase
+
+bindsym $mod+Shift+Prior exec --no-startup-id ~/.config/i3/scripts/brightness.sh set 100
+bindsym $mod+Shift+Next exec --no-startup-id ~/.config/i3/scripts/brightness.sh set 0
+bindsym $mod+Ctrl+Prior exec --no-startup-id ~/.config/i3/scripts/brightness.sh set 50
+bindsym $mod+Ctrl+Next exec --no-startup-id ~/.config/i3/scripts/brightness.sh set 50
+
 exec_always --no-startup-id setxkbmap eu
 
 gaps inner 5
@@ -41,7 +50,7 @@ font pango:FantasqueSansM Nerd Font 12
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-exec --no-startup-id xautolock -time 30 -locker "dm-tool lock" -notify 10 -notifier "notify-send 'Locking in 10 seconds'"
+exec --no-startup-id ~/.config/i3/scripts/lock.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
