@@ -12,6 +12,8 @@
 exec_always --no-startup-id picom -b
 exec_always --no-startup-id dunst
 
+exec_always --no-startup-id "$HOME/.config/i3/scripts/reboot_picom_after_unlock.sh"
+
 bindsym $mod+Ctrl+c exec --no-startup-id killall picom
 bindsym $mod+c exec --no-startup-id picom -b
 
