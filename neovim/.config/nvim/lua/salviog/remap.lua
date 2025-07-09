@@ -44,3 +44,6 @@ vim.keymap.set("n", "<leader>T", "<C-w>s<C-w>j10<C-w>_:term<CR>i", { desc = "Ope
 
 -- LazyGit
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
+
+-- Navbuddy
+vim.keymap.set("n", "<leader>nb", ":Navbuddy<CR>", { desc = "Open Navbuddy" })
