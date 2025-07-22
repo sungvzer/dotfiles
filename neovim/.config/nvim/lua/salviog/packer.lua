@@ -18,9 +18,11 @@ end
 
 local packer_bootstrap = ensure_packer()
 
-return require("packer").startup(function(use)
+require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
+
+	use("mfussenegger/nvim-lint")
 
 	use("github/copilot.vim")
 
@@ -143,12 +145,6 @@ return require("packer").startup(function(use)
 
 	use("lervag/vimtex")
 	--
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-
 	use("MunifTanjim/nui.nvim")
 	use({
 		"SmiteshP/nvim-navic",
@@ -172,3 +168,9 @@ return require("packer").startup(function(use)
 		end,
 	})
 end)
+
+-- Automatically set up your configuration after cloning packer.nvim
+-- Put this at the end after all plugins
+if packer_bootstrap then
+	require("packer").sync()
+end
