@@ -1,15 +1,21 @@
 #!/bin/sh
 
-# Query with ddcutil
-DDC_DISPLAY=$(ddcutil detect | grep -oP 'Display (\d+)' | awk '{print $2}')
+# If saved ddcdisplay is not found, use ddcutil to detect the display,
+# otherwise use the saved display.
+
+if [ ! -f ~/.cache/ddcbus.txt ]; then
+    ddcutil detect | rg '/dev/i2c-(\d*)' -or '$1' > ~/.cache/ddcbus.txt
+fi
+
+DDC_BUS=$(cat ~/.cache/ddcbus.txt | head -n 1)
 
 set_brightness() {
     local brightness=$1
-    ddcutil --display "$DDC_DISPLAY" setvcp 10 "$brightness"
+    ddcutil --bus "$DDC_BUS" setvcp 10 "$brightness"
 }
 
 save_brightness() {
-    BRIGHTNESS=$(ddcutil --display 1 getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
+    BRIGHTNESS=$(ddcutil --bus "$DDC_BUS"  getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
     echo "$BRIGHTNESS" > ~/.cache/brightness.txt
 }
 
@@ -24,7 +30,7 @@ restore_brightness() {
 
 
 increase_brightness() {
-    CURRENT=$(ddcutil --display "$DDC_DISPLAY" getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
+    CURRENT=$(ddcutil --bus "$DDC_BUS" getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
     NEW=$((CURRENT + 10))
     if [ "$NEW" -gt 100 ]; then
         NEW=100
@@ -33,7 +39,7 @@ increase_brightness() {
 }
 
 decrease_brightness() {
-    CURRENT=$(ddcutil --display "$DDC_DISPLAY" getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
+    CURRENT=$(ddcutil --bus "$DDC_BUS" getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
     NEW=$((CURRENT - 10))
     if [ "$NEW" -lt 0 ]; then
         NEW=0
