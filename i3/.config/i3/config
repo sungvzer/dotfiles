@@ -19,7 +19,7 @@ bindsym $mod+c exec --no-startup-id picom -b
 
 bindsym $mod+Tab workspace next
 
-bindsym $mod+Shift+d exec --no-startup-id "source $HOME/.config/i3/work.private && i3-msg workspace 2 && i3-msg exec slack && i3-msg exec firefox $WORK_STANDUP_URL"
+bindsym $mod+Shift+d exec --no-startup-id discord
 
 # Mod + PageUp/Down increase/decrease brightness
 bindsym $mod+Next exec --no-startup-id ~/.config/i3/scripts/brightness.sh decrease
