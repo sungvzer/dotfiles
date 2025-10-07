@@ -280,3 +280,8 @@ bindsym $mod+Shift+t exec --no-startup-id tidal-hifi
 
 for_window [urgent="latest"] focus
 focus_on_window_activation focus
+
+# Scratchpad
+
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+minus move scratchpad

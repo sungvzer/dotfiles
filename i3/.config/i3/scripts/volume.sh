@@ -14,7 +14,7 @@ get_volume() {
 
 case $BLOCK_BUTTON in
     1) mute ;;  # Left click, mute
-    3) pavucontrol ;;  # Right click, open pavucontrol
+    3) pavucontrol-qt ;;  # Right click, open pavucontrol
     4) amixer set Master 5%+ > /dev/null ; get_volume ;;  # Scroll up
     5) amixer set Master 5%- > /dev/null ; get_volume ;;  # Scroll down
 esac
