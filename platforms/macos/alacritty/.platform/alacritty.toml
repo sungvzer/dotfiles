@@ -1,9 +1,9 @@
 [font]
-size = 20
+size = 16
 
 [font.offset]
-x = -1
-y = 0
+x = 0
+y = 5
 
 [font.normal]
 family = "IosevkaTermSlab Nerd Font"
