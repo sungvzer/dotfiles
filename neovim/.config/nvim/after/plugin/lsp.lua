@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.lsp.config("lua_ls", {
@@ -34,9 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 
 local default_setup = function(server)
-	lspconfig[server].setup({
-		capabilities = lsp_capabilities,
-	})
+	vim.lsp.server.setup({ capabilities = lsp_capabilities })
 end
 
 require("mason").setup({})
@@ -65,7 +62,7 @@ cmp.setup({
 	},
 })
 
-require("lspconfig").lua_ls.setup({
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			runtime = {
@@ -91,4 +88,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 -- Fix clangd error
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
-require("lspconfig").clangd.setup({ capabilities = capabilities })
+vim.lsp.config("clangd", { capabilities = capabilities })

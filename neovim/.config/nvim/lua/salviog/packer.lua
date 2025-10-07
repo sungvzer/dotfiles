@@ -41,6 +41,7 @@ require("packer").startup(function(use)
 	use("rebelot/kanagawa.nvim")
 	use("projekt0n/github-nvim-theme")
 	use("jacoborus/tender.vim")
+	use("vague-theme/vague.nvim")
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
