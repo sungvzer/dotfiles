@@ -60,7 +60,8 @@ exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Use pactl to adjust volume in PulseAudio.
+bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+
 set $refresh_i3status pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume up 10 && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume down 10 && $refresh_i3status
