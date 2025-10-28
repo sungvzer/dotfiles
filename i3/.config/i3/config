@@ -84,6 +84,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+space exec --no-startup-id "rofi -show combi"
+bindsym $mod+shift+f exec --no-startup-id "rofi -show filebrowser"
 bindsym $mod+Shift+s --release exec --no-startup-id flameshot gui
 bindsym $mod+Shift+w --release exec --no-startup-id $HOME/.config/i3/scripts/flameshot-window.sh
 bindsym $mod+Shift+Return exec --no-startup-id firefox
