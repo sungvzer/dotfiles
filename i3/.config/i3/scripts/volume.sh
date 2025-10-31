@@ -1,7 +1,7 @@
 #!/bin/bash
 
 mute() {
-    amixer set Master toggle > /dev/null
+    i3-volume mute
 }
 
 get_volume() {
@@ -15,8 +15,8 @@ get_volume() {
 case $BLOCK_BUTTON in
     1) mute ;;  # Left click, mute
     3) i3-msg -q "exec --no-startup-id pavucontrol-qt" ;;  # Right click, open pavucontrol
-    4) amixer set Master 5%+ > /dev/null ; get_volume ;;  # Scroll up
-    5) amixer set Master 5%- > /dev/null ; get_volume ;;  # Scroll down
+    4) i3-volume up 5;;
+    5) i3-volume down 5;;
 esac
 
 get_volume
