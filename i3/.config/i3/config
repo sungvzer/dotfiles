@@ -290,3 +290,5 @@ focus_on_window_activation focus
 
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
+
+for_window [class="Betterbird"] mark betterbird
