@@ -61,7 +61,7 @@
     progress_bar_max_width = 300
 
     # Corner radius for the progress bar. 0 disables rounded corners.
-    progress_bar_corner_radius = 0
+    progress_bar_corner_radius = 30
 
     # Corner radius for the icon image.
     icon_corner_radius = 0
@@ -456,4 +456,19 @@
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
 #
+#
+# Set center black for VOLUME notifications
+[volume-notifications]
+    stack_tag = volume
+    background = "#000A"
+    foreground = "#FFF"
+    frame_color = "#000A"
+    highlight = "#FFF"
+    # Set the icon size
+    max_icon_size = 32
+    icon_position = top
+    hide_text = true
+    # lower duration
+    timeout = 1
+
 # vim: ft=cfg

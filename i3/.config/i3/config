@@ -64,9 +64,15 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 
 set $refresh_i3status pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume up 10 && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume down 10 && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id i3-volume mute && $refresh_i3status
+set $volume_script "$HOME/.config/i3/scripts/volume_script.sh"
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume up 5 && $refresh_i3status && $volume_script notify
+bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume down 5 && $refresh_i3status && $volume_script notify
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id i3-volume up 10 && $refresh_i3status && $volume_script notify
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id i3-volume down 10 && $refresh_i3status && $volume_script notify
+bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id i3-volume up 1 && $refresh_i3status && $volume_script notify
+bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id i3-volume down 1 && $refresh_i3status && $volume_script notify
+bindsym XF86AudioMute exec --no-startup-id i3-volume mute && $refresh_i3status && $volume_script notify
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -282,6 +288,7 @@ bar {
 }
 
 bindsym $mod+Shift+t exec --no-startup-id tidal-hifi
+bindsym $mod+Shift+w exec --no-startup-id elecwhat
 
 for_window [urgent="latest"] focus
 focus_on_window_activation focus

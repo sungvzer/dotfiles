@@ -4,14 +4,6 @@ mute() {
     i3-volume mute
 }
 
-get_volume() {
-    if amixer get Master | grep -q '\[off\]'; then
-        echo "Muted"
-        return
-    fi
-    amixer get Master | awk -F'[][]' '/%/ { print $2 }' | head -n1;
-}
-
 toggle_pavucontrol() {
     if pgrep -x "pavucontrol-qt" > /dev/null; then
         pkill -x "pavucontrol-qt"
@@ -20,12 +12,25 @@ toggle_pavucontrol() {
     fi
 }
 
+should_notify() {
+    button=$1
+    case $button in
+        1|4|5) return 0 ;;  # Scroll events, do not notify
+        *) return 1 ;;    # Other events, notify
+    esac
+}
+
 case $BLOCK_BUTTON in
     1) mute ;;  # Left click, mute
     3) toggle_pavucontrol ;;  # Right click, open pavucontrol
+    # Scroll up, launch volume script in background
     4) i3-volume up 5;;
     5) i3-volume down 5;;
 esac
 
-get_volume
+ if should_notify $BLOCK_BUTTON; then
+    i3-msg "exec --no-startup-id $HOME/.config/i3/scripts/volume_script.sh notify" > /dev/null
+fi
+
+"$HOME/.config/i3/scripts/volume_script.sh"
 
