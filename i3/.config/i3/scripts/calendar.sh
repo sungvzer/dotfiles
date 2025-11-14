@@ -1,7 +1,7 @@
 if [ $BLOCK_BUTTON = "1" ]; then
     if pgrep -x "betterbird-bin" > /dev/null; then
         # if Betterbird is in the scratchpad
-        if [ "$(~/.config/i3/scripts/get_window_by_mark.sh -m betterbird -r w)" = "-1" ]; then
+        if [ "$(~/.config/i3/scripts/get_window_by_mark.sh -c Betterbird -r w)" = "-1" ]; then
             i3-msg -q "[class=Betterbird] scratchpad show"
             i3-msg -q "[class=Betterbird] focus"
             i3-msg -q "[class=Betterbird] floating disable"
