@@ -288,7 +288,6 @@ bar {
 }
 
 bindsym $mod+Shift+t exec --no-startup-id tidal-hifi
-bindsym $mod+Shift+w exec --no-startup-id elecwhat
 
 for_window [urgent="latest"] focus
 focus_on_window_activation focus
