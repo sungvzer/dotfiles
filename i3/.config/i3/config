@@ -297,4 +297,7 @@ focus_on_window_activation focus
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
+# Rename current workspace by prompting for a name
+bindsym $mod+Ctrl+r exec --no-startup-id ~/.config/i3/scripts/rename_workspace.sh
+
 for_window [class="Betterbird"] mark betterbird
