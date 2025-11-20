@@ -1,4 +1,4 @@
-MOUSE_SENSITIVITY=${MOUSE_SENSITIVITY:-0.1}
+MOUSE_SENSITIVITY=${MOUSE_SENSITIVITY:-0.6}
 
  while true; do
   NEW_ID=$(xinput | grep 'G7 Mouse' | grep -o -E 'id=[0-9]+' | grep -o -E '[0-9]+')
