@@ -47,3 +47,17 @@ vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
 
 -- Navbuddy
 vim.keymap.set("n", "<leader>nb", ":Navbuddy<CR>", { desc = "Open Navbuddy" })
+
+local function toggle_copilot()
+	local status = vim.api.nvim_exec2("Copilot status", { output = true }).output
+	if string.find(status, "Disabled") then
+		vim.cmd("Copilot enable")
+		print("Copilot Enabled")
+	else
+		vim.cmd("Copilot disable")
+		print("Copilot Disabled")
+	end
+end
+
+-- Toggle copilot
+vim.keymap.set("n", "<leader>cc", toggle_copilot, { desc = "Toggle Copilot" })
