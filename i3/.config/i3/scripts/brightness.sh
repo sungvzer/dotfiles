@@ -4,19 +4,33 @@
 # otherwise use the saved display.
 
 if [ ! -f ~/.cache/ddcbus.txt ]; then
-    ddcutil detect | rg '/dev/i2c-(\d*)' -or '$1' > ~/.cache/ddcbus.txt
+    ddcutil detect | rg '/dev/i2c-(\d*)' -or '$1' >~/.cache/ddcbus.txt
 fi
 
 DDC_BUS=$(cat ~/.cache/ddcbus.txt | head -n 1)
 
+notify_brightness() {
+    local brightness=$1
+    icon="/usr/share/icons/breeze-dark/actions/24/"
+
+    if [ "$brightness" -ge 50 ]; then
+        icon+="brightness-high.svg"
+    else
+        icon+="brightness-low.svg"
+    fi
+    notify-send -a "brightness" -h int:value:"$brightness" -h string:x-dunst-stack-tag:brightness --icon "$icon" ""
+
+}
+
 set_brightness() {
     local brightness=$1
+    notify_brightness $brightness
     ddcutil --bus "$DDC_BUS" setvcp 10 "$brightness"
 }
 
 save_brightness() {
-    BRIGHTNESS=$(ddcutil --bus "$DDC_BUS"  getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
-    echo "$BRIGHTNESS" > ~/.cache/brightness.txt
+    BRIGHTNESS=$(ddcutil --bus "$DDC_BUS" getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
+    echo "$BRIGHTNESS" >~/.cache/brightness.txt
 }
 
 restore_brightness() {
@@ -27,7 +41,6 @@ restore_brightness() {
         echo "No saved brightness found."
     fi
 }
-
 
 increase_brightness() {
     CURRENT=$(ddcutil --bus "$DDC_BUS" getvcp 10 | grep -oP 'current value *= *\d+' | awk '{print $4}')
@@ -48,30 +61,30 @@ decrease_brightness() {
 }
 
 case "$1" in
-    increase)
-        increase_brightness
-        ;;
-    decrease)
-        decrease_brightness
-        ;;
-    push)
-        if [ -z "$2" ]; then
-            exit 1
-        fi
-        save_brightness
-        set_brightness "$2"
-        ;;
-    pop)
-        restore_brightness
-        ;;
-    set)
-        if [ -z "$2" ]; then
-            exit 1
-        fi
-        rm -f ~/.cache/brightness.txt
-        set_brightness "$2"
-        ;;
-    *)
+increase)
+    increase_brightness
+    ;;
+decrease)
+    decrease_brightness
+    ;;
+push)
+    if [ -z "$2" ]; then
         exit 1
-        ;;
+    fi
+    save_brightness
+    set_brightness "$2"
+    ;;
+pop)
+    restore_brightness
+    ;;
+set)
+    if [ -z "$2" ]; then
+        exit 1
+    fi
+    rm -f ~/.cache/brightness.txt
+    set_brightness "$2"
+    ;;
+*)
+    exit 1
+    ;;
 esac

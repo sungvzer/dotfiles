@@ -471,4 +471,18 @@
     # lower duration
     timeout = 1
 
+# Set center black for BRIGHTNESS notifications
+[brightness-notifications]
+    stack_tag = brightness
+    background = "#000A"
+    foreground = "#FFF"
+    frame_color = "#000A"
+    highlight = "#FFF"
+    # Set the icon size
+    max_icon_size = 32
+    icon_position = top
+    hide_text = true
+    # lower duration
+    timeout = 1
+
 # vim: ft=cfg
