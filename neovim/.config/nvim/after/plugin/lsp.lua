@@ -80,6 +80,26 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+vim.lsp.config("rust_analyzer", {
+	settings = {
+		["rust-analyzer"] = {
+			cargo = {
+				allFeatures = true,
+			},
+		},
+		checkOnSave = {
+			command = "clippy",
+		},
+		inlayHints = { locationLinks = false },
+		diagnostics = {
+			enable = true,
+			experimental = {
+				enable = true,
+			},
+		},
+	},
+})
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	-- delay update diagnostics
 	update_in_insert = true,

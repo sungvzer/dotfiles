@@ -168,6 +168,8 @@ require("packer").startup(function(use)
 			require("nvim-navbuddy").setup({ lsp = { auto_attach = true } })
 		end,
 	})
+
+	use("fladson/vim-kitty")
 end)
 
 -- Automatically set up your configuration after cloning packer.nvim
