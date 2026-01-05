@@ -6,6 +6,12 @@ function ColorUpdate(color)
 		vim.cmd([[hi Normal guibg=NONE ctermbg=NONE]])
 		vim.cmd([[hi NormalNC guibg=NONE ctermbg=NONE]])
 		vim.cmd([[hi SignColumn guibg=NONE ctermbg=NONE]])
+
+		-- Telescope popup transparency
+		vim.cmd([[hi TelescopeNormal guibg=NONE ctermbg=NONE]])
+
+		-- NvimTree transparency
+		vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
 	end
 end
 
