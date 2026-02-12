@@ -1,4 +1,6 @@
-require("nvim-treesitter.configs").setup({
+local treesitter = require("nvim-treesitter")
+
+treesitter.setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	-- Add "help"?
 	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "rust" },
