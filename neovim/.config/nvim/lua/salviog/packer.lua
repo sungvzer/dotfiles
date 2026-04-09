@@ -28,7 +28,7 @@ require("packer").startup(function(use)
 
 	use({
 		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
+		branch = "master",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
@@ -45,6 +45,9 @@ require("packer").startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		tag = "main",
+		config_pre = function()
+			vim.g.loaded_nvim_treesitter = 1
+		end,
 		run = function()
 			local ts_update = require("nvim-treesitter.install").update({
 				with_sync = true,
@@ -52,6 +55,8 @@ require("packer").startup(function(use)
 			ts_update()
 		end,
 	})
+
+	use({ "lewis6991/ts-install.nvim", requires = "nvim-treesitter/nvim-treesitter" })
 
 	use("mbbill/undotree")
 	use("tpope/vim-fugitive")
@@ -76,8 +81,6 @@ require("packer").startup(function(use)
 	use("mhinz/vim-signify")
 
 	use("mogelbrod/vim-jsonpath")
-
-	use("f-person/git-blame.nvim")
 
 	use({
 		"nvim-lualine/lualine.nvim",

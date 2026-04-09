@@ -1,17 +1,6 @@
 local treesitter = require("nvim-treesitter")
 
 treesitter.setup({
-	-- A list of parser names, or "all" (the five listed parsers should always be installed)
-	-- Add "help"?
-	ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "rust" },
-
-	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
-
-	-- Automatically install missing parsers when entering buffer
-	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-	auto_install = true,
-
 	highlight = {
 		enable = true,
 		disable = { "latex" },
@@ -20,4 +9,17 @@ treesitter.setup({
 	indent = {
 		enable = false,
 	},
+})
+
+require("ts-install").setup({
+	ensure_install = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "rust", "go", "jsx", "tsx" },
+
+	-- List of parsers to ignore installing
+	ignore_install = {},
+
+	-- Automatically install missing parsers when entering buffer
+	auto_install = true,
+
+	-- Directory to install parsers and queries to
+	install_dir = vim.fn.stdpath("data") .. "/ts-install",
 })
