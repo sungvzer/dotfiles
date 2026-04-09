@@ -2,14 +2,6 @@ return {
 	{ "mfussenegger/nvim-lint" },
 	{ "github/copilot.vim" },
 	{ "nvim-telescope/telescope.nvim", branch = "master", dependencies = { "nvim-lua/plenary.nvim" } },
-	{ "catppuccin/nvim", name = "catppuccin" },
-	{ "frenzyexists/aquarium-vim", name = "aquarium" },
-	{ "Everblush/nvim", name = "everblush" },
-	{ "sainnhe/everforest" },
-	{ "rebelot/kanagawa.nvim" },
-	{ "projekt0n/github-nvim-theme" },
-	{ "jacoborus/tender.vim" },
-	{ "vague-theme/vague.nvim" },
 
 	{
 		"romus204/tree-sitter-manager.nvim",
