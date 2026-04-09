@@ -68,5 +68,13 @@ return {
 	{ "windwp/nvim-ts-autotag" },
 	{ "lervag/vimtex" },
 	{ "MunifTanjim/nui.nvim" },
-	{ "SmiteshP/nvim-navic", dependencies = { "neovim/nvim-lspconfig" } },
+	{
+		"SmiteshP/nvim-navic",
+		dependencies = { "neovim/nvim-lspconfig" },
+		opts = {
+			lsp = {
+				auto_attach = true,
+			},
+		},
+	},
 }
