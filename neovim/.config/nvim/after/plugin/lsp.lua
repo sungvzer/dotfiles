@@ -27,8 +27,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
 		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.jump(-1)<cr>", opts)
-		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.jump(1)<cr>", opts)
+		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.jump({count=-1})<cr>", opts)
+		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.jump({count=1})<cr>", opts)
 	end,
 })
 
