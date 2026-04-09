@@ -4,16 +4,16 @@ return {
 	{ "nvim-telescope/telescope.nvim", branch = "master", dependencies = { "nvim-lua/plenary.nvim" } },
 
 	{
-		"romus204/tree-sitter-manager.nvim",
-		dependencies = {}, -- tree-sitter CLI must be installed system-wide
-		config = function()
-			require("tree-sitter-manager").setup({
-				-- ensure_installed = { "bash", "lua", "python" }, -- list of parsers to install automatically
-				-- Optional: custom paths
-				-- parser_dir = vim.fn.stdpath("data") .. "/site/parser",
-				-- query_dir = vim.fn.stdpath("data") .. "/site/queries",
-			})
+		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
+		branch = "main",
+		init = function()
+			vim.g.loaded_nvim_treesitter = 1
 		end,
+	},
+
+	{
+		"lewis6991/ts-install.nvim",
 	},
 
 	{
