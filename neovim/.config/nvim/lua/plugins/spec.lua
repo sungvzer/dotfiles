@@ -34,7 +34,12 @@ return {
 	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
-	{ "hrsh7th/nvim-cmp" },
+	{
+		"hrsh7th/nvim-cmp",
+		-- 2026-04-09: Latest commit would be a1d504892f2bc56c2e79b65c6faded2fd21f3eca but it crashes due to some nil shit. IDK I'm too tired for this.
+		-- Will probably check next time I look at this file if it is fixed.
+		commit = "da88697d7f45d16852c6b2769dc52387d1ddc45f",
+	},
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "ray-x/lsp_signature.nvim" },
