@@ -46,7 +46,10 @@ vim.keymap.set("n", "<leader>T", "<C-w>s<C-w>j10<C-w>_:term<CR>i", { desc = "Ope
 vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open LazyGit" })
 
 -- Navbuddy
-vim.keymap.set("n", "<leader>nb", ":Navbuddy<CR>", { desc = "Open Navbuddy" })
+local function navbuddy()
+	require("nvim-navbuddy").open()
+end
+vim.keymap.set("n", "<leader>nb", navbuddy, { desc = "Open Navbuddy" })
 
 local function toggle_copilot()
 	local status = vim.api.nvim_exec2("Copilot status", { output = true }).output

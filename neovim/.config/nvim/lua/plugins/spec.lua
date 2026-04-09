@@ -16,7 +16,22 @@ return {
 		end,
 	},
 
-	{ "neovim/nvim-lspconfig" },
+	{
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{
+				"SmiteshP/nvim-navbuddy",
+				dependencies = {
+					"SmiteshP/nvim-navic",
+					"neovim/nvim-lspconfig",
+					"MunifTanjim/nui.nvim",
+					"numToStr/Comment.nvim",
+					"nvim-telescope/telescope.nvim",
+				},
+				opts = { lsp = { auto_attach = true } },
+			},
+		},
+	},
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "hrsh7th/nvim-cmp" },
@@ -54,14 +69,4 @@ return {
 	{ "lervag/vimtex" },
 	{ "MunifTanjim/nui.nvim" },
 	{ "SmiteshP/nvim-navic", dependencies = { "neovim/nvim-lspconfig" } },
-	{
-		"SmiteshP/nvim-navbuddy",
-		dependencies = {
-			"SmiteshP/nvim-navic",
-			"neovim/nvim-lspconfig",
-			"MunifTanjim/nui.nvim",
-			"numToStr/Comment.nvim",
-			"nvim-telescope/telescope.nvim",
-		},
-	},
 }
