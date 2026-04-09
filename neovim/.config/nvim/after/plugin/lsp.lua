@@ -10,6 +10,18 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+local function jump_with_window(count)
+	vim.diagnostic.jump({
+		count = count,
+		on_jump = function(diagnostic, bufnr)
+			if not diagnostic then
+				return
+			end
+			vim.diagnostic.open_float({ bufnr = bufnr, scope = "cursor", focus = false })
+		end,
+	})
+end
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP actions",
 	callback = function(event)
@@ -27,8 +39,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 
 		vim.keymap.set("n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-		vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.jump({count=-1})<cr>", opts)
-		vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.jump({count=1})<cr>", opts)
+		vim.keymap.set("n", "[d", function()
+			jump_with_window(-1)
+		end, opts)
+		vim.keymap.set("n", "]d", function()
+			jump_with_window(1)
+		end, opts)
 	end,
 })
 
