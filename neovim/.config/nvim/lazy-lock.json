@@ -32,8 +32,10 @@
   "tender.vim": { "branch": "master", "commit": "b66dc330aff998dff9d44459d84bc1c5f4304fcc" },
   "trouble.nvim": { "branch": "main", "commit": "bd67efe408d4816e25e8491cc5ad4088e708a69a" },
   "ts-install.nvim": { "branch": "main", "commit": "7c5569256212d17041d5f3057e5fcbaf646f6643" },
+  "twilight.nvim": { "branch": "main", "commit": "664e752f4a219801265cc3fc18782b457b58c1e1" },
   "vague.nvim": { "branch": "main", "commit": "8751181a1aa431b4e8983b0a183afef5cbc08381" },
   "vim-signify": { "branch": "master", "commit": "3b5ae37eb2b77c3ae58d60dfdc3fc30258078663" },
   "vimtex": { "branch": "master", "commit": "9306903316c3ddd250676b7cf97c84a84c9c8f99" },
-  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
+  "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
+  "zen-mode.nvim": { "branch": "main", "commit": "8564ce6d29ec7554eb9df578efa882d33b3c23a7" }
 }

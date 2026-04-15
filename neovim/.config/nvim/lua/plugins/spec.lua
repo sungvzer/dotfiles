@@ -1,4 +1,8 @@
 return {
+	{ "folke/zen-mode.nvim" },
+	{
+		"folke/twilight.nvim",
+	},
 	{ "mfussenegger/nvim-lint" },
 	{ "github/copilot.vim" },
 	{ "nvim-telescope/telescope.nvim", branch = "master", dependencies = { "nvim-lua/plenary.nvim" } },
