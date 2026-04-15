@@ -1,4 +1,5 @@
 return {
+	{ "nvim-telescope/telescope-ui-select.nvim" },
 	{ "folke/zen-mode.nvim" },
 	{
 		"folke/twilight.nvim",

@@ -15,6 +15,13 @@ vim.keymap.set("n", "<leader>pt", builtin.lsp_dynamic_workspace_symbols, { desc 
 local actions = require("telescope.actions")
 
 require("telescope").setup({
+	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({
+				-- even more opts
+			}),
+		},
+	},
 	pickers = {
 		colorscheme = {
 			enable_preview = true,
@@ -43,3 +50,5 @@ require("telescope").setup({
 		},
 	},
 })
+
+require("telescope").load_extension("ui-select")
