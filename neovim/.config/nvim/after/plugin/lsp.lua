@@ -1,3 +1,30 @@
+vim.lsp.inlay_hint.enable(true)
+vim.diagnostic.config({
+	float = {
+		border = "rounded",
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "󰅚 ",
+			[vim.diagnostic.severity.WARN] = "󰀪 ",
+			[vim.diagnostic.severity.INFO] = "󰋽 ",
+			[vim.diagnostic.severity.HINT] = "󰌶 ",
+		},
+	} or {},
+	virtual_text = {
+		prefix = function(diagnostic)
+			local icons = {
+				[vim.diagnostic.severity.ERROR] = "󰅚 ",
+				[vim.diagnostic.severity.WARN] = "󰀪 ",
+				[vim.diagnostic.severity.INFO] = "󰋽 ",
+				[vim.diagnostic.severity.HINT] = "󰌶 ",
+			}
+
+			return icons[diagnostic.severity]
+		end,
+	},
+})
+
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.lsp.config("lua_ls", {
