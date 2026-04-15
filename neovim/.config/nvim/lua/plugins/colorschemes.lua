@@ -7,4 +7,9 @@ return {
 	{ "projekt0n/github-nvim-theme" },
 	{ "jacoborus/tender.vim" },
 	{ "vague-theme/vague.nvim" },
+	{
+		"ember-theme/nvim",
+		name = "ember",
+		priority = 1000,
+	},
 }
