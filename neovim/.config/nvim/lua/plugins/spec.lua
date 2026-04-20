@@ -76,7 +76,9 @@ return {
 	},
 	{ "folke/which-key.nvim" },
 	{ "windwp/nvim-ts-autotag" },
-	{ "lervag/vimtex" },
+	{ "lervag/vimtex", dependencies = {
+		"folke/snacks.nvim",
+	} },
 	{ "MunifTanjim/nui.nvim" },
 	{
 		"SmiteshP/nvim-navic",
