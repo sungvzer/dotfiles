@@ -34,12 +34,13 @@ bindsym $mod+Ctrl+Next exec --no-startup-id ~/.config/i3/scripts/brightness.sh s
 
 exec_always --no-startup-id setxkbmap eu
 
-smart_gaps on
-gaps inner 5
+gaps inner 8
 gaps outer 5
 
 bindsym $mod+z      gaps outer current plus 5
 bindsym $mod+Shift+z    gaps outer current minus 5
+bindsym $mod+x      gaps inner current plus 5
+bindsym $mod+Shift+x    gaps inner current minus 5
 
 
 # Font for window titles. Will also be used by the bar unless a different font
