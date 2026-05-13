@@ -11,7 +11,7 @@ alias ta="tmux attach"
 
 alias gwb="git welcome-back"
 
-alias tp="trash-put"
+alias tp="trash"
 
 function webp() {
     cwebp -size 1024000 "$1" -o "${1%.*}.webp"
