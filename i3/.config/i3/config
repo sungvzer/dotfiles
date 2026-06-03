@@ -63,7 +63,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id lxpolkit
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
 set $refresh_i3status pkill -SIGRTMIN+10 i3blocks
 set $volume_script "$HOME/.config/i3/scripts/volume_script.sh"
