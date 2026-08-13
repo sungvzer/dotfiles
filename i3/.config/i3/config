@@ -68,13 +68,15 @@ bindsym --release Caps_Lock exec --no-startup-id pkill -SIGRTMIN+11 i3blocks
 
 set $refresh_i3status pkill -SIGRTMIN+10 i3blocks
 set $volume_script "$HOME/.config/i3/scripts/volume_script.sh"
+set $volume_up zsh -c 'BLOCK_BUTTON=4 $HOME/.config/i3/scripts/volume.sh'
+set $volume_down zsh -c 'BLOCK_BUTTON=5 $HOME/.config/i3/scripts/volume.sh'
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id i3-volume up 5 && $refresh_i3status && $volume_script notify
-bindsym XF86AudioLowerVolume exec --no-startup-id i3-volume down 5 && $refresh_i3status && $volume_script notify
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id i3-volume up 10 && $refresh_i3status && $volume_script notify
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id i3-volume down 10 && $refresh_i3status && $volume_script notify
-bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id i3-volume up 1 && $refresh_i3status && $volume_script notify
-bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id i3-volume down 1 && $refresh_i3status && $volume_script notify
+bindsym XF86AudioRaiseVolume exec --no-startup-id $volume_up && $refresh_i3status && $volume_script notify
+bindsym XF86AudioLowerVolume exec --no-startup-id $volume_down && $refresh_i3status && $volume_script notify
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id $volume_up && $refresh_i3status && $volume_script notify
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id $volume_down && $refresh_i3status && $volume_script notify
+bindsym Ctrl+XF86AudioRaiseVolume exec --no-startup-id $volume_up && $refresh_i3status && $volume_script notify
+bindsym Ctrl+XF86AudioLowerVolume exec --no-startup-id $volume_down && $refresh_i3status && $volume_script notify
 bindsym XF86AudioMute exec --no-startup-id i3-volume mute && $refresh_i3status && $volume_script notify
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
