@@ -99,7 +99,7 @@ return {
 		},
 	},
 	{ "folke/which-key.nvim" },
-	{ "windwp/nvim-ts-autotag" },
+	{ "windwp/nvim-ts-autotag", lazy = false, opts = {} },
 	{ "lervag/vimtex", dependencies = {
 		"folke/snacks.nvim",
 	} },
