@@ -1,6 +1,6 @@
 format = """
 [](fg:#d65d0e)\
-[ 󰣇 ](bg:#d65d0e fg:#282828)\
+[$os](bg:#d65d0e fg:#282828)\
 [](bg:#83a598 fg:#d65d0e)\
 $directory\
 [](fg:#83a598 bg:#504945)\
@@ -69,3 +69,10 @@ show_milliseconds = true
 success_symbol = '[❯](bold green)'
 error_symbol = '[✗](bold red)'
 
+[os]
+format = '[[ $symbol ](bg:#d65d0e fg:#282828)]($style)'
+disabled = false
+
+[os.symbols]
+Arch = ""
+Macos = ""
