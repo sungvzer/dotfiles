@@ -29,6 +29,11 @@ return {
 	},
 	{
 		"github/copilot.vim",
+		init = function()
+			-- Use the bundled language server instead of `npx`, which exits with 127
+			-- under asdf shims (copilot-language-server: command not found).
+			vim.g.copilot_npx = false
+		end,
 	},
 	{ "nvim-telescope/telescope.nvim", branch = "master", dependencies = { "nvim-lua/plenary.nvim" } },
 
