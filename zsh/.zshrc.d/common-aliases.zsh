@@ -4,6 +4,7 @@ alias v="nvim"
 alias sudo="sudo "
 
 alias gpb="git prune-branches"
+alias gsb="git sb"
 alias gfix="gc -m fixup && gsta && grbi develop && gpf && gstp"
 alias zshrc="${EDITOR} ~/.zshrc"
 alias t="tmux"
