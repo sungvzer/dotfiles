@@ -15,7 +15,6 @@ exec --no-startup-id dunst
 exec --no-startup-id flameshot
 
 exec --no-startup-id "$HOME/.config/i3/scripts/reboot_picom_after_unlock.sh"
-exec --no-startup-id "$HOME/.config/i3/scripts/mouse_sensitivity.sh"
 
 bindsym $mod+Ctrl+c exec --no-startup-id killall picom
 bindsym $mod+c exec --no-startup-id picom -b

@@ -13,6 +13,8 @@ let g:neoformat_try_node_exe = 1
 
 let g:latexindent_opt="-m"
 
+let g:neoformat_enabled_yaml = ['prettierd']
+
 augroup fmt
     autocmd!
     autocmd BufWritePre * undojoin | Neoformat
